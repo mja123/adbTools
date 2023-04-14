@@ -1,7 +1,7 @@
 #! /bin/bash
 
-folder=/setUp/cmdline-tools
-target=/setUp/cmdline-tools/tools
+folder=/setUp/sdk
+target=/setUp/sdk/tools
 
 for file in $folder/*
 do
