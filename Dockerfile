@@ -1,4 +1,4 @@
-FROM ubuntu:rolling
+FROM --platform=linux/amd64 ubuntu:rolling
 
 RUN apt-get update && apt-get install -y usbutils curl unzip openjdk-11-jdk
 
@@ -16,12 +16,8 @@ RUN curl https://dl.google.com/android/repository/platform-tools_r34.0.1-linux.z
 
 RUN unzip platform-tools -d /setUp/sdk
 
-RUN export JAVA_HOME="/usr/lib/jvm/java-1.11.0-openjdk-arm64"
+ENV JAVA_HOME="/usr/lib/jvm/java-1.11.0-openjdk-arm64"
 
+ENV ANDROID_HOME="/setUp/sdk"
 
-
-
-
-
-
-
+ENV PATH=$PATH:$ANDROID_HOME:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$JAVA_HOME
